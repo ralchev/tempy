@@ -14,18 +14,11 @@ from tempy_sensor_data import read_sensor_data
 import time
 from tempy_db import data_write
 
-# Retrieving current external temperature to pass as a parameter later on
-weather_data = weather_data()
-ext_temp = weather_data["temp"]
-
-# Retriving current internal temperature to pass as a parameter later on
-int_temp = read_sensor_data()
-
-# Current time
-current_time = time.time()
-
-# Submitting data to database every 15 minutes
 while True:
+    weather_data = weather_data()
+    ext_temp = weather_data["temp"]
+    int_temp = read_sensor_data()
+    current_time = time.time()
     data_write(current_time, int_temp, ext_temp)
-    time.sleep(889)
+    time.sleep(15)
     
