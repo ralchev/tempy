@@ -20,5 +20,5 @@ while True:
     int_temp = read_sensor_data()
     current_time = time.time()
     data_write(current_time, int_temp, ext_temp)
-    time.sleep(15)
+    time.sleep(889)
     
